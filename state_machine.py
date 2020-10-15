@@ -34,12 +34,16 @@ class StateMachine:
     def input_on_button_press(self, button_number: int):
         print("Button Number: {}".format(button_number))
         if button_number == 4:
-            self.set_root_note(Notes.c)
+            self.set_root_note(Notes.a)
         elif button_number == 8:
-            self.set_root_note(Notes.d)
+            self.set_root_note(Notes.c)
         elif button_number == 12:
-            self.set_root_note(Notes.f)
+            self.set_root_note(Notes.d)
         elif button_number == 16:
+            self.set_root_note(Notes.e)
+        elif button_number == 20:
+            self.set_root_note(Notes.f)
+        elif button_number == 24:
             self.set_root_note(Notes.g)
 
     def input_on_acceleration(self, axis, direction):

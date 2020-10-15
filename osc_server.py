@@ -17,7 +17,7 @@ class OSCServer():
     current_pitch = None
     previous_acceleration = 0
 
-    def __init__(self, ip_address = "192.168.137.1", port = 8009):
+    def __init__(self, ip_address = "0.0.0.0", port = 8009):
         self.on_pitch_change = event.Event()
         self.on_acceleration = event.Event()
         self.on_button_press = event.Event()
@@ -27,6 +27,8 @@ class OSCServer():
         self.dispatcher.map("/oscControl/gridButton8", self.button_handler)
         self.dispatcher.map("/oscControl/gridButton12", self.button_handler)
         self.dispatcher.map("/oscControl/gridButton16", self.button_handler)
+        self.dispatcher.map("/oscControl/gridButton20", self.button_handler)
+        self.dispatcher.map("/oscControl/gridButton24", self.button_handler)
         self.dispatcher.map("/orientation/pitch", self.pitch_handler)
         self.server = osc_server.ThreadingOSCUDPServer((ip_address, port), self.dispatcher)
 

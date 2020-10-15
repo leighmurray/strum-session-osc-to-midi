@@ -7,6 +7,8 @@ class MidiClient:
 
     midiout = None
     root_note_a_midi = 45
+    # Change this after you've run the script once to determined the port loopMIDI is running on.
+    midi_port = 2
 
     def __init__(self):
         self.midiout = rtmidi.MidiOut()
@@ -18,7 +20,7 @@ class MidiClient:
 
         # Attempt to open the port
         if available_ports:
-            self.midiout.open_port(2)
+            self.midiout.open_port(midi_port)
         else:
             self.midiout.open_virtual_port("My virtual output")
 
